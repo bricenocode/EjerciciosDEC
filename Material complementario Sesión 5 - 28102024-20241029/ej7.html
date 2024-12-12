@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador de Palabras</title>
+</head>
+<body>
+    <!-- Campo de texto y contador de palabras -->
+    <textarea id="texto" placeholder="Escribe algo..."></textarea>
+    <p id="contadorPalabras">0 palabras</p>
+
+    <script>
+        // Selecciona el área de texto y el contador de palabras por sus IDs
+        const texto = document.getElementById('texto');
+        const contadorPalabras = document.getElementById('contadorPalabras');
+        
+        // Añade un evento de entrada para contar palabras en tiempo real
+        texto.addEventListener('input', function() {
+            // Divide el texto en palabras y cuenta cuántas hay
+            
+            // / / es una expresión regular
+            // / Estos son los delimitadores que indican dónde comienza y termina la expresión regular. No son paréntesis.
+            // \s Este símbolo representa cualquier carácter de espacio en blanco (como espacios, tabulaciones, etc.).
+            // + Este signo indica "uno o más" de lo que viene antes. En este caso, se refiere a uno o más espacios en blanco.
+            const palabras = texto.value.trim().split(/\s+/);
+
+            // Condición: palabras[0] === '' verifica si el primer elemento del arreglo palabras es una cadena vacía.
+            // condición ? valor_si_verdadero : valor_si_falso;
+            // Si la condición es verdadera (es decir, si palabras[0] es una cadena vacía), se asigna 0 a totalPalabras.
+
+            const totalPalabras = palabras[0] === '' ? 0 : palabras.length;
+            
+            // Actualiza el contador de palabras
+            contadorPalabras.textContent = `${totalPalabras} palabras`;
+        });
+    </script>
+</body>
+</html>

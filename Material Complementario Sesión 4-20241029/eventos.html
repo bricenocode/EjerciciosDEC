@@ -1,0 +1,38 @@
+<!-- Crea una página web simple que contenga un botón. Al hacer clic en el botón, se debe mostrar un mensaje en la página 
+ indicando que el botón ha sido clicado.
+
+Requisitos:
+
+La página debe tener un botón que diga "Haz clic aquí".
+Debe haber un párrafo vacío donde se mostrará el mensaje al hacer clic en el botón.
+Al hacer clic en el botón, se debe cambiar el contenido del párrafo para mostrar el mensaje "¡Botón clicado!".
+Utiliza JavaScript para gestionar el evento de clic en el botón. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Eventos</title>
+</head>
+<body>
+    <!-- Botón que el usuario puede clicar -->
+    <button id="miBoton">Haz clic aquí</button>
+    <!-- Párrafo donde se mostrará el mensaje al hacer clic en el botón -->
+    <p id="mensaje"></p>
+
+    <script>
+        // Obtener referencia al botón y al párrafo donde se mostrará el mensaje
+        const boton = document.getElementById("miBoton"); // Referencia al botón
+        const mensaje = document.getElementById("mensaje"); // Referencia al párrafo
+
+        // Función que se ejecutará cuando se haga clic en el botón
+        function mostrarMensaje() {
+            mensaje.textContent = "¡Botón clicado!"; // Cambiar el texto del párrafo
+        }
+
+        // Agregar un escuchador de eventos al botón
+        boton.addEventListener("click", mostrarMensaje); // Ejecutar la función mostrarMensaje al hacer clic en el botón
+    </script>
+</body>
+</html>

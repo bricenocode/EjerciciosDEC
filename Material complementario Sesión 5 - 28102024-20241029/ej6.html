@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mostrar/Ocultar Contraseña</title>
+</head>
+<body>
+    <!-- Campo de entrada para contraseña y botón para mostrar/ocultar -->
+    <input type="password" id="contraseña" placeholder="Ingresa tu contraseña">
+    <button id="toggleContraseña">Mostrar</button>
+
+    <script>
+        // Selecciona el campo de contraseña y el botón por sus IDs
+        const contraseña = document.getElementById('contraseña');
+        const boton = document.getElementById('toggleContraseña');
+        
+        // Añade un evento de clic al botón
+        boton.addEventListener('click', function() {
+            // Verifica el tipo actual del campo de contraseña
+            if (contraseña.type === 'password') {
+                // Cambia el tipo a texto para mostrar la contraseña
+                contraseña.type = 'text';
+                boton.textContent = 'Ocultar';
+            } else {
+                // Cambia el tipo a password para ocultarla
+                contraseña.type = 'password';
+                boton.textContent = 'Mostrar';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Establece el conjunto de caracteres a UTF-8 -->
+    <title>Validar Formulario</title> <!-- Título de la página que se mostrará en la pestaña del navegador -->
+</head>
+<body>
+    <!-- Formulario con campos de nombre y correo -->
+    <form id="formulario"> <!-- Identificamos el formulario con el ID 'formulario' -->
+        <input type="text" id="nombre" placeholder="Nombre"> <!-- Campo de texto para el nombre -->
+        <input type="email" id="correo" placeholder="Correo electrónico"> <!-- Campo de texto para el correo electrónico -->
+        <button type="submit">Enviar</button> <!-- Botón para enviar el formulario -->
+    </form>
+    <div id="errores"></div> <!-- Div para mostrar mensajes de error -->
+
+    <script>
+        // Selecciona el formulario y la sección de errores por sus IDs
+        const formulario = document.getElementById('formulario'); // Obtiene el elemento del formulario
+        const errores = document.getElementById('errores'); // Obtiene el elemento donde se mostrarán los errores
+        
+        // Añade un evento de envío al formulario
+        formulario.addEventListener('submit', function(evento) {
+            // Previene el envío del formulario para poder validar los campos
+            evento.preventDefault();
+            // Limpia mensajes de errores previos antes de realizar una nueva validación
+            // limpia cualquier contenido HTML que se encuentre en el elemento con el 
+            //identificador errores, eliminando así mensajes de error previos que se hayan mostrado en pantalla.
+            errores.innerHTML = '';
+            // crea un arreglo vacío llamado mensajesError, que se usará para almacenar nuevos mensajes de error que 
+            // se quieran mostrar. Esto es útil en validaciones de formularios, donde se desea acumular todos los 
+            //errores detectados y luego mostrarlos al usuario de manera ordenada.
+            let mensajesError = []; // Inicializa un array para almacenar mensajes de error
+
+            // Verifica si el nombre está vacío
+            if (document.getElementById('nombre').value.trim() === '') {
+                // Si el campo está vacío, agrega un mensaje de error al array
+                mensajesError.push('El nombre es obligatorio.');
+            }
+            // Verifica si el correo está vacío
+            if (document.getElementById('correo').value.trim() === '') {
+                // Si el campo está vacío, agrega un mensaje de error al array
+                mensajesError.push('El correo es obligatorio.');
+            }
+
+            // Muestra los errores si los hay
+            if (mensajesError.length > 0) {
+                // Si hay mensajes de error, los une en un solo string con saltos de línea y los muestra en la sección de errores
+                errores.innerHTML = mensajesError.join('<br>');
+            } else {
+                // Si no hay errores, muestra un mensaje de éxito
+                errores.innerHTML = 'Formulario enviado correctamente';
+            }
+        });
+    </script>
+</body>
+</html>

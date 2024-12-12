@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cambiar Texto del Botón</title>
+</head>
+<body>
+    <!-- Botón que cambia su texto al hacer clic -->
+    <button id="cambiarTexto">¡Haz clic aquí!</button>
+
+    <script>
+        // Selecciona el botón por su ID
+        const boton = document.getElementById('cambiarTexto');
+        
+        // Añade un evento de clic al botón
+        boton.addEventListener('click', function() {
+            // Verifica el texto actual del botón y cambia al otro valor
+            if (boton.textContent === '¡Haz clic aquí!') {
+                boton.textContent = '¡Gracias por hacer clic!';
+            } else {
+                boton.textContent = '¡Haz clic aquí!';
+            }
+        });
+    </script>
+</body>
+</html>

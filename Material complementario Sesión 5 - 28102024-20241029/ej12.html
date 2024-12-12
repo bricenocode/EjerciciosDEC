@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Dinámica</title>
+</head>
+<body>
+    <!-- Formulario para agregar elementos a la lista -->
+    <input type="text" id="nuevoElemento" placeholder="Nuevo elemento">
+    <button id="agregarElemento">Agregar a la lista</button>
+    <ul id="lista"></ul>
+
+    <script>
+        // Selecciona el campo de texto, botón y lista por sus IDs
+        const nuevoElemento = document.getElementById('nuevoElemento');
+        const boton = document.getElementById('agregarElemento');
+        const lista = document.getElementById('lista');
+        
+        // Añade un evento de clic al botón
+        boton.addEventListener('click', function() {
+            // Crea un nuevo elemento de lista
+            const elementoLista = document.createElement('li');
+            // Establece el texto del nuevo elemento
+            elementoLista.textContent = nuevoElemento.value;
+            // Agrega el nuevo elemento a la lista
+            lista.appendChild(elementoLista);
+            // Limpia el campo de entrada
+            nuevoElemento.value = '';
+        });
+    </script>
+</body>
+</html>

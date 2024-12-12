@@ -1,0 +1,24 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador de caracteres</title>
+</head>
+<body>
+    <!-- Campo de texto y contador -->
+    <input type="text" id="campoTexto" placeholder="Escribe aquí">
+    <p id="contador">0 caracteres</p>
+    
+    <script>
+        // Selecciona el campo de texto y el contador por sus IDs
+        const campoTexto = document.getElementById('campoTexto');
+        const contador = document.getElementById('contador');
+        
+        // Añade un evento de entrada al campo de texto
+        campoTexto.addEventListener('input', function() {
+            // Muestra el número de caracteres escritos
+            contador.textContent = `${campoTexto.value.length} caracteres`;
+        });
+    </script>
+</body>
+</html>
+

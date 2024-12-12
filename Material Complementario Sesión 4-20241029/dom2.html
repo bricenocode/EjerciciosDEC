@@ -1,0 +1,89 @@
+<!-- Ejercicio: Contador Interactivo
+Descripción:
+Crearemos una página web que tenga un contador numérico. El usuario puede:
+
+Incrementar el valor del contador.
+Decrementar el valor del contador.
+Reiniciar el contador a cero. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador Interactivo</title>
+    <style>
+        /* Estilos básicos para el cuerpo del documento */
+        body {
+            font-family: Arial, sans-serif; /* Usar fuente Arial */
+            text-align: center; /* Centrar el contenido de la página */
+            margin-top: 50px; /* Añadir espacio en la parte superior */
+        }
+        
+        /* Estilos para el valor del contador */
+        #contador {
+            font-size: 48px; /* Tamaño de fuente grande para el contador */
+            margin: 20px 0; /* Margen arriba y abajo del contador */
+        }
+        
+        /* Estilos para los botones */
+        button {
+            font-size: 20px; /* Tamaño de fuente más grande para los botones */
+            padding: 10px; /* Añadir espacio interno a los botones */
+            margin: 5px; /* Añadir espacio entre los botones */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Título del contador -->
+    <h1>Contador Interactivo</h1>
+    
+    <!-- Aquí se mostrará el valor del contador -->
+    <div id="contador">0</div> <!-- Inicialmente, el contador empieza en 0 -->
+    
+    <!-- Botones para controlar el contador -->
+    <button id="incrementar">Incrementar</button> <!-- Botón para incrementar el contador -->
+    <button id="decrementar">Decrementar</button> <!-- Botón para decrementar el contador -->
+    <button id="reiniciar">Reiniciar</button> <!-- Botón para reiniciar el contador a 0 -->
+
+    <script>
+        // Obtener referencia al div donde se mostrará el valor del contador
+        const contador = document.getElementById("contador");
+
+        // Obtener referencias a los botones de incrementar, decrementar y reiniciar
+        const btnIncrementar = document.getElementById("incrementar");
+        const btnDecrementar = document.getElementById("decrementar");
+        const btnReiniciar = document.getElementById("reiniciar");
+
+        // Inicializar el valor del contador a 0
+        let valorContador = 0;
+
+        // Función para actualizar el valor mostrado del contador en el DOM
+        function actualizarContador() {
+            contador.innerText = valorContador; // Cambia el texto del div #contador al valor actual
+        }
+
+        // Evento para incrementar el contador al hacer clic en el botón "Incrementar"
+        btnIncrementar.addEventListener("click", function() {
+            valorContador++; // Aumentar el valor del contador en 1
+            actualizarContador(); // Actualizar el DOM con el nuevo valor del contador
+        });
+
+        // Evento para decrementar el contador al hacer clic en el botón "Decrementar"
+        btnDecrementar.addEventListener("click", function() {
+            valorContador--; // Disminuir el valor del contador en 1
+            actualizarContador(); // Actualizar el DOM con el nuevo valor del contador
+        });
+
+        // Evento para reiniciar el contador al hacer clic en el botón "Reiniciar"
+        btnReiniciar.addEventListener("click", function() {
+            valorContador = 0; // Reiniciar el contador a 0
+            actualizarContador(); // Actualizar el DOM con el valor reiniciado
+        });
+    </script>
+
+</body>
+</html>
+
+

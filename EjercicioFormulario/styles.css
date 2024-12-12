@@ -1,0 +1,106 @@
+/*
+    Estilos CSS:
+        Añadir estilos básicos para el formulario, con márgenes, espaciado interno (padding), bordes redondeados y colores para que el formulario sea visualmente atractivo.
+        Cambiar el color del botón de envío cuando el usuario pase el cursor por encima (hover).
+        Marcar los campos obligatorios que falten por rellenar con un borde rojo si se intenta enviar sin completar.
+*/
+
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top:10px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Estilos del formulario */
+.formulario label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #4b5563;
+}
+
+.input, .submit, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    outline: none;
+    font-size: 16px;
+}
+
+.input:focus, select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0px 0px 4px rgba(59, 130, 246, 0.5);
+}
+
+/* Estilos de radio buttons y checkbox */
+.check {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    color: #4b5563;
+    margin-right: 15px;
+}
+
+.check input {
+    margin-left: 5px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* Botón de envío */
+.submit {
+    background-color: #3b82f6;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit:hover {
+    background-color: #2563eb;
+}
+
+/* mensajes de error y exito */
+
+.mensaje{
+    margin: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+
+    
+}
+.exito{
+    background-color: rgb(50, 138, 50);
+}
+.error{
+    background-color: rgb(68, 4, 4);
+}

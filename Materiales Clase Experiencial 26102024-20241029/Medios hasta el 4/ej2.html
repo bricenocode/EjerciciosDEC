@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Validación de campo</title>
+</head>
+<body>
+    <!-- Formulario con un campo de texto y un botón -->
+    <form id="formulario">
+        <input type="text" id="campoTexto" placeholder="Escribe algo">
+        <button type="submit">Enviar</button>
+    </form>
+    <p id="mensaje"></p>
+    
+    <script>
+        // Selecciona el formulario y el mensaje por sus IDs
+        const formulario = document.getElementById('formulario');
+        const mensaje = document.getElementById('mensaje');
+        
+        // Añade un evento de envío al formulario
+        formulario.addEventListener('submit', function(evento) {
+            // Previene el envío del formulario
+            // se utiliza en JavaScript para prevenir el comportamiento por defecto de un evento. 
+            // Esto es especialmente útil cuando estás trabajando con formularios, enlaces y otros elementos 
+            // que tienen acciones predeterminadas.
+            evento.preventDefault();
+            
+            // Selecciona el valor del campo de texto
+            const texto = document.getElementById('campoTexto').value;
+            
+            // Verifica si el campo está vacío
+            if (texto === '') {
+                // Muestra un mensaje de advertencia si está vacío
+                // Al asignar un valor a textContent, se reemplaza todo el contenido de texto existente dentro del elemento.
+                mensaje.textContent = 'El campo no puede estar vacío';
+            } else {
+                // Limpia el mensaje si hay texto
+                mensaje.textContent = 'Todo ok';
+            }
+
+        });
+    </script>
+</body>
+</html>

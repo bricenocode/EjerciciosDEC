@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cambiar Contenido Select</title>
+</head>
+<body>
+    <!-- Select para elegir una opción entre varias -->
+    <select id="opciones">
+        <option value="">Selecciona una opción</option> <!-- Opción predeterminada -->
+        <option value="Opción 1">Opción 1</option>    <!-- Opción 1 -->
+        <option value="Opción 2">Opción 2</option>    <!-- Opción 2 -->
+        <option value="Opción 3">Opción 3</option>    <!-- Opción 3 -->
+    </select>
+    
+    <!-- Párrafo para mostrar el contenido de la opción seleccionada -->
+    <p id="resultado"></p>
+
+    <script>
+        // Selecciona el elemento select y el párrafo donde se mostrará el resultado
+        const select = document.getElementById('opciones'); // Elemento select para elegir opciones
+        const resultado = document.getElementById('resultado'); // Párrafo para mostrar la selección
+        
+        // Añade un evento que se ejecuta cuando el usuario cambia la selección
+        select.addEventListener('change', function() {
+            // Actualiza el contenido del párrafo con el valor de la opción seleccionada
+            resultado.textContent = `Has seleccionado: ${select.value}`; // Muestra el valor seleccionado en el párrafo
+        });
+    </script>
+</body>
+</html>

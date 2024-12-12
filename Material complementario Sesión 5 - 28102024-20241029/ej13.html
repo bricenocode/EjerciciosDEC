@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 -->
+    <title>Cambiar Contenido de la Lista</title> <!-- Título de la página que aparecerá en la pestaña del navegador -->
+</head>
+<body>
+    <!-- Lista inicial con elementos -->
+    <ul id="lista"> <!-- Identificamos la lista con el ID 'lista' -->
+        <li>Elemento 1</li> <!-- Primer elemento de la lista -->
+        <li>Elemento 2</li> <!-- Segundo elemento de la lista -->
+        <li>Elemento 3</li> <!-- Tercer elemento de la lista -->
+    </ul>
+
+    <script>
+        // Selecciona la lista por su ID
+        const lista = document.getElementById('lista'); // Obtiene el elemento de la lista usando su ID
+        
+        // Añade un evento de clic a cada elemento de la lista
+        lista.addEventListener('click', function(evento) {
+            // Verifica si el elemento clickeado es un <li>
+                // evento.target es el <li>.
+                    //evento.target.tagName será 'LI',
+                // tagName siempre devuelve el nombre de la etiqueta en mayúsculas
+            if (evento.target.tagName === 'LI') { // Comprueba que el tag del elemento clickeado sea 'li'
+                // Pide al usuario que ingrese un nuevo texto
+                const nuevoTexto = prompt('Ingresa el nuevo texto:', evento.target.textContent);
+                // Si se ingresó un nuevo texto, actualiza el contenido
+                if (nuevoTexto) { // Verifica que el usuario haya ingresado texto (no nulo o vacío)
+                    evento.target.textContent = nuevoTexto; // Cambia el texto del elemento <li> al nuevo texto proporcionado
+                }
+            }
+        });
+    </script>
+</body>
+</html>

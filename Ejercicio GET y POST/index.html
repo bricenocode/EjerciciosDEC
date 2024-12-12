@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petición API con Fetch</title>
+  <script src="programaPrincipal.js"></script>
+</head>
+<body>
+  <h1>Ejemplo de Petición GET y POST con Fetch</h1>
+
+  <!-- Área donde se mostrarán los usuarios obtenidos -->
+  <div id="usuarios"></div>
+
+  <!-- Botón para hacer una solicitud POST -->
+  <button id="enviarDatos">Enviar Datos</button>
+
+  <script>
+    // Función para hacer la solicitud GET
+    async function obtenerUsuarios() {
+      try {
+        let respuesta = await fetch("https://jsonplaceholder.typicode.com/users");
+        if (respuesta.ok) {
+          let datos = await respuesta.json();
+          mostrarUsuarios(datos);
+        } else {
+          console.log("Error de red, código:", respuesta.status);
+        }
+      } catch (error) {
+        console.log("Error en la solicitud:", error);
+      }
+    }
+
+    // Función para mostrar los usuarios en la página
+    function mostrarUsuarios(usuarios) {
+      const contenedor = document.getElementById("usuarios");
+      usuarios.forEach(usuario => {
+        const div = document.createElement("div");
+        div.innerHTML = `<p>${usuario.name} (${usuario.email})</p>`;
+        contenedor.appendChild(div);
+      });
+    }
+
+    // Función para hacer la solicitud POST
+    async function enviarDatos() {
+      const datosParaEnviar = {
+        name: "Juan Pérez",
+        email: "juan@ejemplo.com"
+      };
+
+      try {
+        let respuesta = await fetch("https://jsonplaceholder.typicode.com/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(datosParaEnviar)
+        });
+
+        if (respuesta.ok) {
+          let datos = await respuesta.json();
+          console.log("Datos enviados correctamente:", datos);
+        } else {
+          console.log("Error de red, código:", respuesta.status);
+        }
+      } catch (error) {
+        console.log("Error en la solicitud:", error);
+      }
+    }
+
+    // Llamar a la función para obtener los usuarios al cargar la página
+    obtenerUsuarios();
+
+    // Añadir un evento al botón para enviar los datos
+    document.getElementById("enviarDatos").addEventListener("click", enviarDatos);
+  </script>
+</body>
+</html>

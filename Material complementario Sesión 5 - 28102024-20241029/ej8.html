@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Validar Correo</title>
+</head>
+<body>
+    <!-- Campo de correo y botón de envío -->
+    <form id="formulario">
+        <input type="email" id="email" placeholder="Correo electrónico">
+        <button type="submit">Enviar</button>
+    </form>
+    <p id="mensajeCorreo"></p>
+
+    <script>
+        // Selecciona el formulario y el mensaje de correo por sus IDs
+        const formulario = document.getElementById('formulario');
+        const mensajeCorreo = document.getElementById('mensajeCorreo');
+        
+        // Añade un evento de envío para validar el correo
+        formulario.addEventListener('submit', function(evento) {
+            // Previene el envío si el correo es incorrecto
+            evento.preventDefault();
+            
+            // Expresión regular para validar el correo electrónico
+
+            // Desglose de la Expresión Regular
+            //La expresión regular comienza y termina con /, lo que indica que todo lo que está entre 
+            //estos dos caracteres es la regex.
+            //^: Este símbolo significa "comienzo de la cadena". La expresión debe coincidir desde el inicio de la cadena.
+            // [^\s@]+:
+                //[ y ]: Estos corchetes se utilizan para definir un conjunto de caracteres.
+                // ^ dentro de los corchetes: Significa "no incluir". Así que [^\s@] significa "cualquier carácter que no sea 
+                    //un espacio (\s) o una arroba (@)".
+                // +: Este símbolo significa "uno o más" del carácter anterior, en este caso, uno o más caracteres que no son 
+                    //espacios ni @. Esto permite que haya múltiples caracteres en la parte del nombre de usuario del correo electrónico.
+                //@: Este símbolo se usa directamente y requiere que haya exactamente un carácter @ después de la parte del nombre de usuario.
+            //[^\s@]+: Indica que debe haber uno o más caracteres que no sean espacios ni @, que representan la parte del dominio (antes del punto).
+                // \.: Aquí, el \. significa que debe haber un punto (.). Se escapa con una barra invertida (\) porque en las expresiones regulares, 
+                    //el punto es un carácter especial que significa "cualquier carácter". Al escaparlo, se asegura que se trata de un punto literal.
+            //[^\s@]+: Esta parte finaliza el patrón y requiere que haya uno o más caracteres que no sean espacios ni @, representando la parte de la extensión del dominio (por ejemplo, com, net, etc.).  
+            //$: Este símbolo indica el "final de la cadena". Esto significa que la expresión debe coincidir hasta el final de la cadena, asegurando que no haya caracteres adicionales después de la extensión del dominio.
+
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const correo = document.getElementById('email').value;
+            
+            // Verifica si el correo cumple el formato
+            if (!emailRegex.test(correo)) {
+                // Muestra un mensaje de error si es inválido
+                mensajeCorreo.textContent = 'Correo no válido';
+            } else {
+                // Muestra un mensaje de éxito si es válido
+                mensajeCorreo.textContent = 'Correo válido';
+            }
+        });
+    </script>
+</body>
+</html>

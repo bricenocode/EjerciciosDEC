@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cambiar fondo</title>
+</head>
+<body>
+    <!-- Botón para cambiar el color de fondo -->
+    <button id="cambiarFondo">Cambiar fondo</button>
+    
+    <script>
+        // Selecciona el botón por su ID
+        const boton = document.getElementById('cambiarFondo');
+        
+        // Añade un evento de clic al botón
+        boton.addEventListener('click', function() {
+            // Genera un color aleatorio en formato hexadecimal
+            const colorAleatorio = generarColorAleatorio();
+            // Cambia el color de fondo de la página
+            document.body.style.backgroundColor = colorAleatorio;
+        });
+        
+        // Función para generar un color aleatorio
+        function generarColorAleatorio() {
+            // Genera un valor aleatorio para el rojo (0-255)
+            const rojo = Math.floor(Math.random() * 256);
+            // Genera un valor aleatorio para el verde (0-255)
+            const verde = Math.floor(Math.random() * 256);
+            // Genera un valor aleatorio para el azul (0-255)
+            const azul = Math.floor(Math.random() * 256);
+            
+            // Convierte cada valor a hexadecimal y los combina en una cadena
+            // .toString(16): convierte el número a hexadecimal
+            // .padStart(2, '0'): asegura que el valor tenga al menos dos dígitos
+            const colorHex = `#${rojo.toString(16).padStart(2, '0')}${verde.toString(16).padStart(2, '0')}${azul.toString(16).padStart(2, '0')}`;
+            
+            return colorHex; // Devuelve el color hexadecimal completo
+        }
+    </script>
+</body>
+</html>

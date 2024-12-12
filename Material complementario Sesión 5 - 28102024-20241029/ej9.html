@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cambiar Tamaño de Texto</title>
+</head>
+
+
+<body>
+    <!-- Texto para modificar y botones para cambiar su tamaño -->
+    <p id="texto">Este es un texto de ejemplo</p>
+    <button id="aumentar">Aumentar tamaño</button>
+    <button id="disminuir">Disminuir tamaño</button>
+
+    <svg
+
+  xmlns="w3.org/2000/svg"
+
+  width="24"
+
+  height="24"
+
+  viewBox="0 0 24 24"
+
+  fill="none"
+
+  stroke="currentColor"
+
+  stroke-width="2"
+
+  stroke-linecap="round"
+
+  stroke-linejoin="round"
+
+>
+
+  <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+
+  <path d="M21 21l-6 -6" />
+
+</svg>
+
+    <script>
+        // Selecciona el texto y los botones por sus IDs
+        const texto = document.getElementById('texto');
+        const aumentar = document.getElementById('aumentar');
+        const disminuir = document.getElementById('disminuir');
+        
+        // Define el tamaño inicial del texto
+        let tamaño = 16;
+        
+        // Evento para aumentar el tamaño del texto en 2 px
+        aumentar.addEventListener('click', function() {
+            tamaño += 2;
+            texto.style.fontSize = `${tamaño}px`;
+        });
+        
+        // Evento para disminuir el tamaño del texto en 2 px
+        disminuir.addEventListener('click', function() {
+            tamaño -= 2;
+            texto.style.fontSize = `${tamaño}px`;
+        });
+    </script>
+</body>
+</html>

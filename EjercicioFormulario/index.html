@@ -1,0 +1,88 @@
+<!--
+    Campos:
+        Nombre completo (obligatorio, mínimo 3 caracteres).
+        Correo electrónico (obligatorio, con validación de formato de correo).
+        Número de teléfono (opcional, con validación para que solo acepte números).
+        Fecha de nacimiento (obligatorio).
+        Selección de género (radio buttons).
+        Selección de país (desplegable con al menos 3 opciones).
+        Checkbox de aceptación de términos y condiciones (obligatorio).
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EjercicioFormulario</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <main class="container">
+        <form id="formulario" class="formulario">
+            <label id="nombreLabel" for="nombre">
+                Nombre:
+                <input id="nombre" name="nombre" type="text" class="input" placeholder="Ej. Maria, Marta, Miguel">
+            </label>
+            <br/>
+            <label id="correoLabel"  for="correo">
+                Correo:
+                <input id="correo" name="correo" type="email" class="input" placeholder="Ej. correo@correo.com">
+            </label>
+            <br/>
+            <label id="movilLabel"  for="movil">
+                Móvil:
+                <input id="movil" name="movil" type="number" class="input" placeholder="Ej.644123456">
+            </label>
+            <br/>
+            <label id="fechaLabel"  for="fecha">
+                Fecha de Nacimiento:
+                <input id="fecha" name="fecha" class="input" type="date">
+            </label>
+            <br/>
+            <label id="generoLabel"  for="">
+                Género:
+                <label for="hombre">
+                    H
+                    <input type="radio" id="hombre" name="genero" class="check"  value="H" checked>
+                </label>
+                <label for="mujer">
+                    M
+                    <input type="radio" id="mujer"  name="genero" class="check" value="M">
+                </label>
+                <label for="x">
+                    X
+                    <input type="radio" id="x"  name="genero" class="check" value="X">
+                </label>
+            </label>
+            <br/>
+            <label id="paisLabel"  for="pais">
+                País:
+                <select  id="pais" name="pais" class="input">
+                    <option value="">-- Seleccione --</option>
+                    <option value="ES">España</option>
+                    <option value="VE">Venezuela</option>
+                    <option value="US">Estados Unidos</option>
+                    <option value="FR">Francia</option>
+                    <option value="DE">Alemania</option>
+                    <option value="BR">Brasil</option>
+                    <option value="MX">México</option>
+                    <option value="IT">Italia</option>
+                    <option value="CA">Canadá</option>
+                    <option value="AR">Argentina</option>
+                </select>
+            </label>
+            <br/>
+            <label id="terminosLabel" for="terminos" class="check">
+                Terminos y Condiciones:
+                <input id="terminos" name="terminos" type="checkbox">
+            </label>
+            <br/>
+            <input type="submit" class="submit" value="Enviar">
+        </form>
+    </main>
+</body>
+
+</html>
+<script src="./index.js"></script>

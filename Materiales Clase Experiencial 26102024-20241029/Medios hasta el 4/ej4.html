@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ocultar y mostrar imagen</title>
+</head>
+<body>
+    <!-- Imagen y botón de ocultar/mostrar -->
+    <img id="imagen" src="https://www.tiendanimal.es/articulos/wp-content/uploads/2018/01/que-necesita-un-gato-1200x675.jpg" alt="Imagen de ejemplo" width="200">
+    <button id="botonImagen">Ocultar</button>
+    
+    <script>
+        // Selecciona la imagen y el botón por sus IDs
+        const imagen = document.getElementById('imagen');
+        const boton = document.getElementById('botonImagen');
+        
+        // Añade un evento de clic al botón
+        boton.addEventListener('click', function() {
+            // Verifica si la imagen está visible
+            // La propiedad .style permite acceder y manipular los estilos CSS en línea de un elemento. 
+            // display es una propiedad de CSS que determina cómo se debe mostrar un elemento en la página.
+            // verifico que la imagen esté o no visible
+            if (imagen.style.display === 'none') { // imagen oculta (no visible)
+                //muestro la imagen si está oculta, la imagen está oculta
+                imagen.style.display = 'block'; //imagen visible
+                boton.textContent = 'Ocultar'; //cambio el contenido del botón -> cambio de texto
+            } else { //la imagen está visible
+                // oculto la imagen si está visble
+                imagen.style.display = 'none'; //ocultar imagen, veo texto "Ocultar"
+                boton.textContent = 'Mostrar'; // cambiar el texto del botón a -> Mostrar
+            }
+        });
+    </script>
+</body>
+</html>

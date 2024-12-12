@@ -1,0 +1,47 @@
+<!-- Crea una página web que contenga un botón. Al hacer clic en el botón, el color de fondo de la página debe 
+ cambiar a un color aleatorio.
+Requisitos:
+La página debe tener un botón que diga "Cambiar Color".
+Al hacer clic en el botón, se debe cambiar el color de fondo de la página a un color aleatorio. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Color de Fondo</title>
+    <style>
+        /* Estilo básico para el cuerpo de la página */
+        body {
+            transition: background-color 0.5s; /* Suaviza la transición del color de fondo */
+        }
+    </style>
+</head>
+<body>
+    <!-- Botón que cambia el color de fondo -->
+    <button id="cambiarColor">Cambiar Color</button>
+
+    <script>
+        // Obtener referencia al botón
+        const botonCambiarColor = document.getElementById("cambiarColor");
+
+        // Función para generar un color aleatorio en formato hexadecimal
+        function generarColorAleatorio() {
+            const letras = '0123456789ABCDEF'; // Letras y números para el color
+            let color = '#'; // Inicializar el color con el símbolo '#'
+            for (let i = 0; i < 6; i++) { // Generar un color de 6 dígitos
+                color += letras[Math.floor(Math.random() * 16)]; // Seleccionar un dígito aleatorio
+            }
+            return color; // Retornar el color generado
+        }
+
+        // Función que se ejecutará al hacer clic en el botón
+        function cambiarColorFondo() {
+            document.body.style.backgroundColor = generarColorAleatorio(); // Cambiar el color de fondo
+        }
+
+        // Agregar un escuchador de eventos al botón
+        botonCambiarColor.addEventListener("click", cambiarColorFondo); // Ejecutar la función al hacer clic en el botón
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+
+/* Aplicar una fuente sans-serif y margen externo al cuerpo de la página */
+body {
+    font-family: Arial, sans-serif; /* Fuente del texto en toda la página */
+    margin: 20px; /* Espaciado alrededor del contenido principal */
+}
+
+/* Estilos para el contenedor del formulario */
+form {
+    max-width: 300px; /* Limitar el ancho máximo del formulario a 300px */
+    margin: 0 auto; /* Centrar el formulario horizontalmente */
+    padding: 10px; /* Espacio interno entre el borde y el contenido del formulario */
+    border: 1px solid #ccc; /* Borde gris claro alrededor del formulario */
+    border-radius: 5px; /* Bordes redondeados del formulario */
+}
+
+/* Estilo para las etiquetas de texto que acompañan a los campos */
+label {
+    display: block; /* Asegurar que la etiqueta ocupe una línea completa */
+    margin: 10px 0 5px; /* Espaciado superior e inferior de la etiqueta */
+}
+
+/* Estilos para los campos de texto (nombre y correo electrónico) */
+input[type="text"], input[type="email"] {
+    width: 90%; /* Ancho del campo, relativo al tamaño del formulario */
+    padding: 8px; /* Espaciado interno para mayor comodidad de escritura */
+    margin-bottom: 10px; /* Espacio inferior entre los campos */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados para una apariencia más suave */
+}
+
+/* Estilos para el botón de envío */
+input[type="submit"] {
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: white; /* Texto en color blanco */
+    padding: 10px; /* Espaciado interno del botón */
+    border: none; /* Sin bordes visibles */
+    border-radius: 5px; /* Bordes redondeados para el botón */
+    cursor: pointer; /* Cambiar el cursor a mano para indicar interactividad */
+}
+
+/* Cambiar el color de fondo cuando el ratón pase por encima del botón */
+input[type="submit"]:hover {
+    background-color: #45a049; /* Cambiar a un verde más oscuro al hacer hover */
+}

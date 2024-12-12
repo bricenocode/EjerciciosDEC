@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Guardar en Local Storage</title>
+</head>
+<body>
+    <!-- Formulario para ingresar el nombre -->
+    <form id="nombreForm">
+        <input type="text" id="nombre" placeholder="Ingresa tu nombre" required> <!-- Campo para ingresar el nombre -->
+        <button type="submit">Guardar</button> <!-- Botón para enviar el formulario -->
+    </form>
+    
+    <!-- Div para mostrar el nombre guardado -->
+    <div id="mensaje"></div>
+
+    <script>
+        // Selecciona el formulario y el div de mensajes por sus IDs
+        const nombreForm = document.getElementById('nombreForm'); // Selección del formulario
+        const mensaje = document.getElementById('mensaje'); // Selección del div para mensajes
+
+        // Carga el nombre guardado al cargar la página
+        window.onload = function() {
+            // Intenta obtener el nombre guardado del Local Storage
+            const nombreGuardado = localStorage.getItem('nombre'); // Recupera el nombre guardado
+            if (nombreGuardado) { // Si hay un nombre guardado
+                // Muestra un saludo con el nombre guardado
+                mensaje.textContent = `Hola, ${nombreGuardado}!`; // Mensaje de saludo
+            }
+        };
+
+        // Añade un evento de envío al formulario
+        nombreForm.addEventListener('submit', function(evento) {
+            // Previene el envío del formulario para evitar la recarga de la página
+            evento.preventDefault(); 
+            // Obtiene el valor ingresado en el campo de texto
+            const nombre = document.getElementById('nombre').value; // Valor del nombre ingresado
+            // Guarda el nombre en Local Storage
+            localStorage.setItem('nombre', nombre); // Almacena el nombre ingresado
+            // Muestra un mensaje confirmando que el nombre ha sido guardado
+            mensaje.textContent = `Nombre guardado: ${nombre}`; // Mensaje de confirmación
+        });
+    </script>
+</body>
+</html>

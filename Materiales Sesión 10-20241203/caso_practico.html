@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DWEC_U07_A01_CP_S</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <button type="button" onclick="obtenerUsuario()">Obtener datos de usuario</button>
+    </div>
+    <div id="datos"></div>
+  </div>
+
+  <script>
+    function obtenerUsuario() {
+      // Usuario y token
+      //const nombreUsuario = "TU_NOMBRE_DE_USUARIO";
+      const nombreUsuario = "luzalvarezmoreno";
+      //const token = "TOKEN_OBTENIDO_DE_GITHUB";
+      const token = "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";
+
+      // URL de la API de GitHub
+      const url = "https://api.github.com/user";
+
+      // Capa para mostrar el resultado
+      let capaDatos = document.getElementById("datos");
+
+
+      // Cabeceras de petición
+      let headers = new Headers();
+
+      // Cabecera de autorización
+      //Usa el método Headers para crear un encabezado HTTP.
+      // La cabecera Authorization incluye las credenciales codificadas en Base64 con el formato usuario:token.
+      // ¡Ojo con el espacio en blanco después de 'Basic'!
+      // La función 'btoa' convierte a código Base64
+      // La función btoa en JavaScript convierte una cadena de texto en un formato Base64 para codificar 
+      // datos binarios o texto en un formato seguro para transmisión.
+      headers.set('Authorization', 'Basic ' + btoa(nombreUsuario + ":" + token));
+
+      // Petición 'fetch' con cabecera de autenticación
+      // Realiza una solicitud HTTP GET al endpoint de la API.  
+      // La API responde con datos del usuario en formato JSON.    
+      fetch(url, {
+        method: 'GET',
+        headers: headers
+      })
+        .then(respuesta => respuesta.json())
+        .then(datos => {
+          // Convierte la respuesta a JSON usando .json().
+          capaDatos.innerText = JSON.stringify(datos);
+        });
+    }
+  </script>
+</body>
+
+</html>

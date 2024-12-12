@@ -1,0 +1,93 @@
+<!--
+Campos del formulario:
+
+    Nombre completo (obligatorio, mínimo 3 caracteres).
+    Correo electrónico (obligatorio, con validación de formato de correo).
+    Número de teléfono (opcional, con validación para que solo acepte números).
+    Fecha de nacimiento (obligatorio).
+    Selección de género (radio buttons).
+    Selección de país (desplegable con al menos 3 opciones).
+    Checkbox de aceptación de términos y condiciones (obligatorio).
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormularioConRestricciones</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <main id="container">
+        <form id="formulario">
+            <label for="nombre" id="nombreLabel">
+                Nombre:
+                <br/>
+                <input type="text" id="nombre">
+            </label>
+            <br/>
+            <label for="correo" id="correoLabel" >
+                Correo Electrónico:
+                <br/>
+                <input type="email" id="correo">
+            </label>
+            <br/>
+            <label for="telefono" id="telefonoLabel">
+                Teléfono:
+                <br/>
+                <input type="number" id="telefono">
+            </label>
+            <br/>
+            <label for="nacimiento" id="nacimientoLabel">
+                Fecha de Nacimiento:
+                <br/>
+                <input type="date" id="nacimiento">
+            </label>
+            <br/>
+            <label id="generoLabel"  for="">
+                Género
+                <br/>
+                <label for="hombre">
+                    H
+                    <input type="radio" id="hombre" name="genero" value="H" checked>
+                </label>
+                <label for="mujer">
+                    M
+                    <input type="radio" id="mujer" name="genero" value="M">
+                </label>
+                <label for="x">
+                    X
+                    <input type="radio" id="x" name="genero" value="X">
+                </label>
+            </label>
+            <br>
+            <label for="pais" id="paisLabel">
+                País:
+                <br/>
+                <select  id="pais" name="pais">
+                    <option value="">-- Seleccione --</option>
+                    <option value="ES">España</option>
+                    <option value="VE">Venezuela</option>
+                    <option value="US">Estados Unidos</option>
+                    <option value="FR">Francia</option>
+                    <option value="DE">Alemania</option>
+                    <option value="BR">Brasil</option>
+                    <option value="MX">México</option>
+                    <option value="IT">Italia</option>
+                    <option value="CA">Canadá</option>
+                    <option value="AR">Argentina</option>
+                </select>
+            </label>
+            <br/>
+            <label for="terminos" id="terminosLabel">
+                Terminos y Condiciones
+                <input type="checkbox" id="terminos">
+            </label>
+            <br/>
+            <input type="submit" id="submit">
+        </form>
+    </main>
+</body>
+</html>
+<script src="index.js"></script>

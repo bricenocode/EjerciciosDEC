@@ -1,0 +1,67 @@
+/*
+Estilos en CSS:
+    Añadir estilos básicos para el formulario, con márgenes, espaciado interno (padding), bordes redondeados y colores para que el formulario sea visualmente atractivo.
+    Cambiar el color del botón de envío cuando el usuario pase el cursor por encima (hover).
+    Marcar los campos obligatorios que falten por rellenar con un borde rojo si se intenta enviar sin completar.
+*/
+
+#container{
+    position: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+#formulario{
+    background-color: rgb(89, 31, 131);
+    padding: 20px;
+    color:rgb(189, 189, 189);
+    width: 300px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px black;
+}
+
+
+
+input, select{
+    border-radius:1rem;
+    padding:5px;
+    margin:4px;
+}
+
+#submit{
+    all:unset;
+    background-color: rgb(55, 0, 109);
+    color:white;
+    padding: 10px;
+    border-radius: 5px;
+    margin:10px;
+}
+
+#submit:hover{
+    background-color: rgba(98, 0, 0, 0.46);
+    border: 1px solid white;
+}
+
+.mensaje{
+    padding: 3px;
+    border-radius: 5px;
+    margin:0;
+    font-size: 12px;
+    width: 250px;
+    margin: auto;
+}
+
+.exito{
+    background-color: rgb(29, 114, 29);
+    font-size: 15px;
+    color: white;
+}
+
+.error{
+    background-color: rgb(79, 20, 20);
+}
+.borde-rojo {
+    border: 2px solid rgb(79, 20, 20);
+}
